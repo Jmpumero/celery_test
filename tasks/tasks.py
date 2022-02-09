@@ -1,4 +1,4 @@
-from celery.celery import celery_app
+from config.celeryconf import celery_app
 
 @celery_app.task
 def add(x, y):
