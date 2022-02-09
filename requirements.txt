@@ -1,0 +1,5 @@
+click==7.1.2
+celery==5.1.2
+requests==2.26.0
+flower==1.0.0
+SQLAlchemy==1.4.3
