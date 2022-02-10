@@ -12,17 +12,15 @@ cada conjunto/funciones de tareas se debe ejecutar su propio worker(s) y beat(pr
 
 worker para el cunjunto de tareas "calculated" definidas en: tasks/calculate.py
 
-# celery -A tasks.calculated worker -l INFO -Q cal
+**celery -A tasks.calculated worker -l INFO -Q cal -c 5 -n worker1.%h**
 
-tenemos que: -A {archivo de las tareas }; -Q <nombre de la cola>; -c <numero de worker>
-
-ejemplo: celery -A tasks.calculated worker -l INFO -Q cal -c 4
+tenemos que: -A {archivo de las tareas} ; -Q nombre de la cola; -c {numero de worker}
 
 la opcion -Q, es utilizada para definir la cola donde estara "esperando el worker" para este caso. La cola cal, en caso de querer agregar mas worker en la cola usamos -c <numero>
 
 worker para el conjunto de tareas "another" definidas en: tasks/another.py
 
-# celery -A tasks.another worker -l INFO
+**celery -A tasks.another worker -l INFO -n worker2.%h**
 
 en este caso como no se define otra cola, el worker utilizara la cola por defecto generada por celery y 1 solo worker operara en esa cola
 
@@ -30,8 +28,8 @@ Para cada beat
 
 tareas de calculated
 
-# celery -A tasks.calculated beat -l info
+**celery -A tasks.calculated beat -l info**
 
 tareas de another
 
-# celery -A tasks.another beat -l info
+**celery -A tasks.another beat -l info**
