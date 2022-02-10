@@ -1,5 +1,5 @@
-from config.celeryconf import celery_app
 
+from config.celery import celery_app
 from celery.schedules import crontab
 
 from datetime import date

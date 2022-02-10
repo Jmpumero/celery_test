@@ -1,4 +1,4 @@
-from config.celeryconf import celery_app # se importa la instacia de celery
+from config.celery import celery_app# se importa la instacia de celery
 from celery.schedules import crontab
 
 from datetime import date

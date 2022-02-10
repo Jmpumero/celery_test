@@ -1,1 +1,0 @@
-from .celeryconf import celery_app
