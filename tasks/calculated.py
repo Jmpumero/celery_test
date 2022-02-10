@@ -8,7 +8,7 @@ from datetime import date
 def setup_periodic_tasks(sender, **kwargs):
 
     sender.add_periodic_task(
-        5.0,
+        0.1,
         add.s(3,4),
         name="task_2",
     )
