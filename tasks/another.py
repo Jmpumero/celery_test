@@ -13,7 +13,7 @@ def setup_periodic_tasks(sender, **kwargs):
         name="task 1", #un nombre como identificador en el log
     )
 
-
+#
 
 #funciones/tareas
 @celery_app.task
