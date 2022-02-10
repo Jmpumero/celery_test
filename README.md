@@ -14,13 +14,17 @@
 
 celery -A tasks.calculated worker -l INFO -Q cal
 
-# la opcion -Q, es utilizada para definir la cola donde estara "esperando el worker" para este caso. La cola cal
+# tenemos que: -A <archivo de las tareas >; -Q <nombre de la cola>; -c <numero de worker>
 
-# worker para el cunjunto de tareas "another" definidas en: tasks/another.py
+ejemplo: celery -A tasks.calculated worker -l INFO -Q cal -c 4
+
+# la opcion -Q, es utilizada para definir la cola donde estara "esperando el worker" para este caso. La cola cal, en caso de querer agregar mas worker en la cola usamos -c <numero>
+
+# worker para el conjunto de tareas "another" definidas en: tasks/another.py
 
 celery -A tasks.another worker -l INFO
 
-# en este caso como no se define otra cola, el worker utilizara la cola por defecto generada por celery
+# en este caso como no se define otra cola, el worker utilizara la cola por defecto generada por celery y 1 solo worker operara en esa cola
 
 # Para cada beat
 
